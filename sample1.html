@@ -52,11 +52,17 @@
     box.position.set(1,0,0); //位置を指定
     scene.add(box);   // シーンに追加 
     // coneを作成
-    var conegeometry = new THREE.ConeGeometry(0.5, 1, 5);
+    var conegeometry = new THREE.ConeGeometry(0.5, 1, 50);
     var conematerial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
     var cone = new THREE.Mesh(conegeometry, conematerial);
     cone.position.set(-1,0,0); //位置を指定
     scene.add(cone);   // シーンに追加 
+    // sphereを作成
+    var spheregeometry = new THREE.SphereGeometry(20, 50, 50);
+    var spherematerial = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+    var sphere = new THREE.Mesh(spheregeometry, spherematerial);
+    sphere.position.set(-1,0,0); //位置を指定
+    scene.add(sphere);   // シーンに追加 
 
     // 初回実行
     var update = function() {
@@ -67,7 +73,9 @@
       box.rotation.y += 0.01;
       cone.rotation.x += 0.01;
       cone.rotation.y += 0.01;
-  
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
+
       renderer.render(scene, camera);
     };
     update();
